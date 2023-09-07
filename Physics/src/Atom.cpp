@@ -22,23 +22,23 @@ Atom::~Atom()
 // AtomWithShells
 // ---------------------------------------------------------------------------
 
-//	unsigned int AtomWithShells::CountNumberOfContractedGaussians() const
-//	{
-//		unsigned int res = 0;
-//
-//		for (auto const& shell : shells)
-//			res += shell.CountNumberOfContractedGaussians();
-//
-//		return res;
-//	}
-//
-//	unsigned int AtomWithShells::CountNumberOfGaussians() const
-//	{
-//		unsigned int res = 0;
-//
-//		for (auto const& shell : shells)
-//			res += shell.CountNumberOfGaussians();
-//
-//		return res;
-//	}
+	unsigned int AtomWithShells::CountNumberOfContractedGaussians() const
+	{
+		unsigned int res = 0;
+
+		for (auto const& shell : shells)
+			res += shell.CountNumberOfContractedGaussians();
+
+		return res;
+	}
+
+	unsigned int AtomWithShells::CountNumberOfGaussians() const
+	{
+		unsigned int res = 0;
+
+		for (auto const& shell : shells)
+			res += shell.CountNumberOfGaussians();
+
+		return res;
+	}
 }

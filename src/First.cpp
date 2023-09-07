@@ -12,5 +12,7 @@ int main(int argc, char* argv[])
     Systems::Atom atom(1, 1);
     std::cout << "Atom: " << atom.ID << " | " << atom.Z << " | " << atom.electronsNumber << std::endl;
 
+    // hi there
+
     return 0;
 }

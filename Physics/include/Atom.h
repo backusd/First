@@ -24,8 +24,8 @@ class AtomWithShells : public Atom
 public:
 	std::vector<Orbitals::ContractedGaussianShell> shells;
 
-//	void Print()
-//	{
+	void Print()
+	{
 //		TRACE("AtomWithShells: Z               = %d\n", Z);
 //		TRACE("AtomWithShells: ID              = %d\n", ID);
 //		TRACE("AtomWithShells: electronsNumber = %d\n", electronsNumber);
@@ -64,75 +64,75 @@ public:
 //			}
 //		}
 //
-//	}
+	}
 
 	AtomWithShells(unsigned int nrZ = 0, unsigned int nrElectrons = -1) : Atom(nrZ, nrElectrons) {}
 
-//	void AddShell(const std::string& name)
-//	{
-//		Orbitals::ContractedGaussianShell shell;
-//
-//		for (auto c : name)	shell.AddOrbitals(c);
-//
-//		shells.emplace_back(std::move(shell));
-//	}
-//
-//	void SetCenterForShells()
-//	{
-//		for (auto& shell : shells) shell.SetCenters(position);
-//	}
-//
-//	void SetPosition(const Vector3D<double>& pos)
-//	{
-//		position = pos;
-//		SetCenterForShells();
-//	}
-//
-//	unsigned int CountNumberOfContractedGaussians() const;
-//	unsigned int CountNumberOfGaussians() const;
-//
-//	void GetMaxQN(double alpha, Orbitals::QuantumNumbers::QuantumNumbers& maxQN) const
-//	{
-//		maxQN.l = maxQN.m = maxQN.n = 0;
-//
-//		for (const auto& shell : shells)
-//			for (const auto& orbital : shell.basisFunctions)
-//				for (const auto& gaussian : orbital.gaussianOrbitals)
-//					if (alpha == gaussian.alpha)
-//					{
-//						maxQN.l = max(maxQN.l, orbital.angularMomentum.l);
-//						maxQN.m = max(maxQN.m, orbital.angularMomentum.m);
-//						maxQN.n = max(maxQN.m, orbital.angularMomentum.n);
-//					}
-//	}
-//
-//	unsigned int GetMaxAngularMomentum() const
-//	{
-//		unsigned int L = 0;
-//
-//		for (const auto& shell : shells)
-//			for (const auto& orbital : shell.basisFunctions)
-//				L = max(L, orbital.angularMomentum);
-//
-//		return L;
-//	}
-//
-//	unsigned int GetMaxAngularMomentum(double alpha) const
-//	{
-//		unsigned int L = 0;
-//
-//		for (const auto& shell : shells)
-//			for (const auto& orbital : shell.basisFunctions)
-//				for (const auto& gaussian : orbital.gaussianOrbitals)
-//					if (alpha == gaussian.alpha)
-//						L = max(L, orbital.angularMomentum);
-//
-//		return L;
-//	}
-//
-//	void Normalize()
-//	{
-//		for (auto& shell : shells) shell.Normalize();
-//	}
+	void AddShell(const std::string& name)
+	{
+		Orbitals::ContractedGaussianShell shell;
+
+		for (auto c : name)	shell.AddOrbitals(c);
+
+		shells.emplace_back(std::move(shell));
+	}
+
+	void SetCenterForShells()
+	{
+		for (auto& shell : shells) shell.SetCenters(position);
+	}
+
+	void SetPosition(const Vector3D<double>& pos)
+	{
+		position = pos;
+		SetCenterForShells();
+	}
+
+	unsigned int CountNumberOfContractedGaussians() const;
+	unsigned int CountNumberOfGaussians() const;
+
+	void GetMaxQN(double alpha, Orbitals::QuantumNumbers::QuantumNumbers& maxQN) const
+	{
+		maxQN.l = maxQN.m = maxQN.n = 0;
+
+		for (const auto& shell : shells)
+			for (const auto& orbital : shell.basisFunctions)
+				for (const auto& gaussian : orbital.gaussianOrbitals)
+					if (alpha == gaussian.alpha)
+					{
+						maxQN.l = std::max(maxQN.l, orbital.angularMomentum.l);
+						maxQN.m = std::max(maxQN.m, orbital.angularMomentum.m);
+						maxQN.n = std::max(maxQN.m, orbital.angularMomentum.n);
+					}
+	}
+
+	unsigned int GetMaxAngularMomentum() const
+	{
+		unsigned int L = 0;
+
+		for (const auto& shell : shells)
+			for (const auto& orbital : shell.basisFunctions)
+				L = std::max(L, orbital.angularMomentum.AngularMomentum());
+
+		return L;
+	}
+
+	unsigned int GetMaxAngularMomentum(double alpha) const
+	{
+		unsigned int L = 0;
+
+		for (const auto& shell : shells)
+			for (const auto& orbital : shell.basisFunctions)
+				for (const auto& gaussian : orbital.gaussianOrbitals)
+					if (alpha == gaussian.alpha)
+						L = std::max(L, orbital.angularMomentum.AngularMomentum());
+
+		return L;
+	}
+
+	void Normalize()
+	{
+		for (auto& shell : shells) shell.Normalize();
+	}
 };
 }

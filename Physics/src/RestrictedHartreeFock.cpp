@@ -349,4 +349,28 @@ namespace HartreeFock {
 	}
 
 
+
+	std::ostream& operator<<(std::ostream& os, const RestrictedHartreeFock& rhf)
+	{
+		os << "=======================================================================\n";
+		os << "class: RestrictedHartreeFock ==========================================\n";
+		os << "    nrOccupiedLevels = " << rhf.nrOccupiedLevels << '\n';
+		os << "    DensityMatrix    = " << rhf.DensityMatrix << '\n';
+		os << "    occupied         = ";
+		for (bool b : rhf.occupied)
+		{
+			if (b)
+				os << "true ";
+			else
+				os << "false ";
+		}
+		os << '\n';
+		os << "    eigenvals        = " << rhf.eigenvals << '\n';
+		os << "    C                = " << rhf.C << '\n';
+		os << "    DIIS             = \n" << rhf.diis;
+		os << "base: HartreeFockAlgorithm" << '\n';
+		operator<<(os, *static_cast<const HartreeFockAlgorithm*>(&rhf));
+		return os;
+	}
+
 }

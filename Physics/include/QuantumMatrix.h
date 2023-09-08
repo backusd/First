@@ -24,6 +24,8 @@ namespace Matrices {
 		unsigned int nrBasis;
 	public:
 		void clear();
+
+		friend std::ostream& operator<<(std::ostream& os, const QuantumMatrix& rhf);
 	};
 
 
@@ -45,6 +47,8 @@ namespace Matrices {
 		MomentMatrix(GaussianIntegrals::IntegralsRepository* repository = nullptr) : QuantumMatrix(repository) { if (integralsRepository) Calculate(); }
 
 		virtual void Calculate();
+
+		friend std::ostream& operator<<(std::ostream& os, const MomentMatrix& rhf);
 	};
 
 

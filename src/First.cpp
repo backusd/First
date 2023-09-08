@@ -1,18 +1,15 @@
-
 #include "First.h"
 #include "FirstConfig.h" // <-- This is a cmake generated file
 
-#include "Atom.h"
+#include "RestrictedHartreeFock.h"
+
 
 int main(int argc, char* argv[])
 {
-    Vector3D<float> vec(1.0f, 2.0f, 3.0f);
-    std::cout << "Vector: " << vec.X << ", " << vec.Y << ", " << vec.Z << std::endl;
+    int iterations = 3000;
+    std::unique_ptr<HartreeFock::RestrictedHartreeFock> algorithm = std::make_unique<HartreeFock::RestrictedHartreeFock>(iterations);
 
-    Systems::Atom atom(1, 1);
-    std::cout << "Atom: " << atom.ID << " | " << atom.Z << " | " << atom.electronsNumber << std::endl;
-
-    // hi there
+    std::cout << *algorithm.get() << std::endl;
 
     return 0;
 }

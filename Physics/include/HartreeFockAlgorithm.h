@@ -108,6 +108,11 @@ namespace HartreeFock {
 		void FirstIterations(int& iter, double& curEnergy, double& prevEnergy, bool debug = false);
 		void SelfConsistentIterations(int& iter, double& curEnergy, double& prevEnergy);
 		void NormalIterations(int& iter, double& curEnergy, double& prevEnergy);
+
+
+
+	public:
+		friend std::ostream& operator<<(std::ostream& os, const HartreeFockAlgorithm& rhf);
 	};
 
 

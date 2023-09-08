@@ -3,7 +3,7 @@
 #include "QuantumNumbers.h"
 #include "Vector3D.h"
 
-#include <Eigen\eigen>
+//#include <Eigen\eigen>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846

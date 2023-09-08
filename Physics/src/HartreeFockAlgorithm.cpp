@@ -303,6 +303,36 @@ namespace HartreeFock {
 	}
 
 
+	std::ostream& operator<<(std::ostream& os, const HartreeFockAlgorithm& rhf)
+	{
+		os << "    totalEnergy                = " << rhf.totalEnergy << '\n';
+		os << "    mp2Energy                  = " << rhf.mp2Energy << '\n';
+		os << "    overlapMatrix              = \n" << rhf.overlapMatrix;
+		os << "    momentMatrix               = \n" << rhf.momentMatrix;
+		os << "    kineticMatrix              = \n" << rhf.kineticMatrix;
+		os << "    nuclearMatrix              = \n" << rhf.nuclearMatrix;
+		os << "    nuclearRepulsionEnergy     = " << rhf.nuclearRepulsionEnergy << '\n';
+		os << "    nuclearElectricFieldEnergy = " << rhf.nuclearElectricFieldEnergy << '\n';
+		os << "    U                          = " << rhf.U << '\n';
+		os << "    s                          = " << rhf.s << '\n';
+		os << "    V                          = " << rhf.V << '\n';
+		os << "    Vt                         = " << rhf.Vt << '\n';
+		os << "    maxIterations              = " << rhf.maxIterations << '\n';
+		os << "    inited                     = " << (rhf.inited ? "true" : "false") << '\n';
+		os << "    numberOfOrbitals           = " << rhf.numberOfOrbitals << '\n';
+		os << "    integralsRepository        = ...Not going to print this for now...\n";
+		os << "    alpha                      = " << rhf.alpha << '\n';
+		os << "    initGuess                  = " << rhf.initGuess << '\n';
+		os << "    terminate                  = " << (rhf.terminate ? "true" : "false") << '\n';
+		os << "    converged                  = " << (rhf.converged ? "true" : "false") << '\n';
+		os << "    HOMOEnergy                 = " << rhf.HOMOEnergy << '\n';
+		os << "    lastErrorEst               = " << rhf.lastErrorEst << '\n';
+		os << "    UseDIIS                    = " << (rhf.UseDIIS ? "true" : "false") << '\n';
+		os << "    maxDIISiterations          = " << rhf.maxDIISiterations << '\n';
+		os << "    normalIterAfterDIIS        = " << rhf.normalIterAfterDIIS << '\n';
+		return os;
+	}
+
 }
 
 

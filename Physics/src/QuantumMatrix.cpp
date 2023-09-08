@@ -165,6 +165,23 @@ namespace Matrices {
 					++i;
 				}
 	}
-}
 
+
+
+
+	std::ostream& operator<<(std::ostream& os, const QuantumMatrix& rhf)
+	{
+		os << "        nrBasis = " << rhf.nrBasis << '\n';
+		os << "        matrix  = " << rhf.matrix << '\n';
+		return os;
+	}
+	std::ostream& operator<<(std::ostream& os, const MomentMatrix& rhf)
+	{
+		os << "        nrBasis  = " << rhf.nrBasis << '\n';
+		os << "        matrix   = " << rhf.matrix << '\n';
+		os << "        matrixY  = " << rhf.matrixY << '\n';
+		os << "        matrixZ  = " << rhf.matrixZ << '\n';
+		return os;
+	}
+}
 

@@ -26,6 +26,18 @@ public:
 
 		return errors.size() >= firstEstimate;
 	}
+
+	friend std::ostream& operator<<(std::ostream& os, const DIISStorage& rhf)
+	{
+		os << "class: DIISStorage" << '\n';
+		os << "    values:" << '\n';
+		for (auto v : rhf.values)
+			os << v << '\n';
+		os << "    errors:" << '\n';
+		for (auto e : rhf.errors)
+			os << e << '\n';
+		return os;
+	}
 };
 
 

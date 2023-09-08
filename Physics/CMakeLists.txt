@@ -17,7 +17,7 @@ add_library(Physics ${Physics_SOURCES} ${Physics_HEADERS})
 target_include_directories(Physics PUBLIC ${Physics_INCLUDE_DIRS})
 
 # Add eigen as a private include directory
-target_include_directories(Physics PRIVATE vendor/eigen)
+target_include_directories(Physics PUBLIC vendor/eigen)
 
 # link to the compiler flags declared in the parent project
 target_link_libraries(Physics PUBLIC compiler_flags)
